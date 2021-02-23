@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package org.example.grpc;
+
+service FileService {
+  rpc getFile(FileRequest) returns (FileResponse) {
+  }
+}
+
+message FileRequest {
+  int64 id = 1;
+}
+
+message FileResponse {
+  bytes response = 1;
+}

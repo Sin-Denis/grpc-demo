@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+package org.example.grpc;
+
+service BookService {
+  rpc getBook(GetBookRequest) returns (BookResponse) {
+  }
+  rpc searchBook(BookFilter) returns (stream BookResponse) {
+  }
+}
+
+message GetBookRequest {
+  int64 id = 1;
+}
+
+message BookFilter {
+  double costFrom = 1;
+  double costTo = 2;
+}
+
+message BookResponse {
+  int64 id = 1;
+  string name = 2;
+  string author = 3;
+  double cost = 4;
+  Type type = 5;
+
+  enum Type {
+    BIOGRAPHY = 0;
+    SPORT = 1;
+    DETECTIVE = 2;
+    EDUCATION = 3;
+  }
+}

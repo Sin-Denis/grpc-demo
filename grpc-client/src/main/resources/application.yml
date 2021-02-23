@@ -1,0 +1,8 @@
+grpc:
+  client:
+    book:
+      address: static://localhost:9090
+      negotiationType: PLAINTEXT
+    file:
+      address: static://localhost:9091
+      negotiationType: PLAINTEXT
